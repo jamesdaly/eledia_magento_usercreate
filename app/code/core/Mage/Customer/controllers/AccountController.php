@@ -341,7 +341,6 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
                     $firstname = $customer->getFirstname();
                     $lastname = $customer->getLastname();
                     include 'moodle_createuser_webservice.php';//eledia create moodle user by webservice
-                    echo "included!\n";
                     Mage::dispatchEvent('customer_register_success',
                         array('account_controller' => $this, 'customer' => $customer)
                     );
