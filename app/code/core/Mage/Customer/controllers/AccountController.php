@@ -329,18 +329,14 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
                 $validationResult = count($errors) == 0;
 
                 if (true === $validationResult) {
-                    echo "try save\n<br />";
                     $customer->save();
-                    echo "saved! try include\n<br />";
-                    print_r($this->getRequest()->getPost('email'));echo "\n<br />";
-                    print_r($this->getRequest()->getPost('password'));echo "\n<br />";
-                    print_r($customer->getFirstname());echo "\n<br />";
-                    print_r($customer->getLastname());echo "\n<br />";
+//eledia create moodle user by webservice
                     $email = $this->getRequest()->getPost('email');
                     $password = $this->getRequest()->getPost('password');
                     $firstname = $customer->getFirstname();
                     $lastname = $customer->getLastname();
-                    include 'moodle_createuser_webservice.php';//eledia create moodle user by webservice
+                    include 'moodle_createuser_webservice.php';
+//eledia end
                     Mage::dispatchEvent('customer_register_success',
                         array('account_controller' => $this, 'customer' => $customer)
                     );
