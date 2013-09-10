@@ -1,7 +1,8 @@
 <?php
 
-    if ($this->getRequest()->getPost('email') && $this->getRequest()->getPost('password') && !empty($customer->getFirstname()) && !empty($customer->getLastname())) {
 
+    if (!empty($email) && !empty($password) && !empty($firstname) && !empty($lastname)) {
+//echo "in if\n<br />";
         try {//build up soap client
             $client = new SoapClient(
                 NULL,
