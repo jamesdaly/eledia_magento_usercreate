@@ -36,7 +36,7 @@
         }catch(exception $e){
 //print_r($client->__getLastResponse());
             $session->setCustomerFormData($this->getRequest()->getPost())
-                    ->addException($e, $this->__('Cannot save the customer to Moodle.'));
+                    ->addException($e, $this->__('Cannot save the customer to Moodle. '.$e->getMessage()));
         }
     }
 //echo "leaving script\n<br />";
